@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogue um Dado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .result-container {
+            margin-top: 20px;
+        }
+
+        .previous-result {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .result {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px;
+            color: #007bff;
+        }
+
+        .dice-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lance um Dado!</h1>
+    <div class="dice-options">
+        <button onclick="rollDice(3)">D3</button>
+        <button onclick="rollDice(4)">D4</button>
+        <button onclick="rollDice(6)">D6</button>
+        <button onclick="rollDice(8)">D8</button>
+        <button onclick="rollDice(10)">D10</button>
+        <button onclick="rollDice(12)">D12</button>
+        <button onclick="rollDice(20)">D20</button>
+        <button onclick="rollDice(100)">D100</button>
+    </div>
+    <div class="result-container">
+        <div class="previous-result" id="previous-result">Resultado Anterior: -</div>
+        <div class="result" id="result">?</div>
+    </div>
+
+    <script>
+        let lastResult = '-';
+
+        function rollDice(sides) {
+            const currentResult = Math.floor(Math.random() * sides) + 1;
+            document.getElementById('previous-result').textContent = `Resultado Anterior: ${lastResult}`;
+            lastResult = currentResult;
+            
+            document.getElementById('result').textContent = currentResult;
+        }
+    </script>
+</body>
+</html>
