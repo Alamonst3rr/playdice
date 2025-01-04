@@ -1,0 +1,2 @@
+# playdice
+Play dices ;)
